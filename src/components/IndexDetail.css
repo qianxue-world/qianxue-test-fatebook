@@ -1,0 +1,405 @@
+.index-detail-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid #667eea;
+  border-radius: 25px;
+  color: #667eea;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 25px;
+}
+
+.back-button:hover {
+  background: #667eea;
+  color: white;
+}
+
+.detail-header {
+  margin-bottom: 30px;
+}
+
+.detail-header h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.detail-name-en {
+  color: #999;
+  font-size: 0.95em;
+}
+
+/* Score Section */
+.detail-score-section {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.score-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.score-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-number {
+  font-size: 4em;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+.score-unit {
+  font-size: 1em;
+  color: #999;
+  margin-top: 5px;
+}
+
+.score-percentile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.percentile-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.percentile-label {
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.percentile-bar-large {
+  margin-top: 20px;
+}
+
+.bar-track {
+  position: relative;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: visible;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.bar-marker {
+  position: absolute;
+  top: -5px;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border: 4px solid #333;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bar-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.8em;
+  color: #999;
+}
+
+/* Detail Sections */
+.detail-section {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+.detail-section h2 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.interpretation-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #2196f3;
+}
+
+.interpretation-box p {
+  color: #1565c0;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.threshold-box {
+  background: #f5f5f5;
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+
+.threshold-box code {
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 0.95em;
+  color: #333;
+}
+
+.method-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.method-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.method-label {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.formula {
+  background: #263238;
+  color: #80cbc4;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 0.9em;
+  overflow-x: auto;
+}
+
+.regions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.region-chip {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* Z-Score Table */
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 15px;
+}
+
+.zscore-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  min-width: 600px;
+}
+
+.zscore-table th,
+.zscore-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.zscore-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+
+.zscore-table tr:hover {
+  background: #f8f9fa;
+}
+
+.zscore-table .region-name {
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+.zscore-table .positive {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.zscore-table .negative {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.zscore-table .weights-cell {
+  font-family: monospace;
+  font-size: 0.85em;
+  color: #666;
+}
+
+.table-note {
+  color: #666;
+  font-size: 0.85em;
+  margin: 0;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* References */
+.references-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reference-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.ref-number {
+  color: #667eea;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.ref-text {
+  color: #555;
+}
+
+/* Footer */
+.detail-footer {
+  padding: 20px;
+  background: #fff3cd;
+  border-radius: 12px;
+  border-left: 4px solid #ffc107;
+  margin-top: 30px;
+}
+
+.detail-footer p {
+  color: #856404;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .score-display {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .score-number {
+    font-size: 3em;
+  }
+
+  .percentile-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 0.9em;
+  }
+}
+
+
+/* Lateralization Bar Styles */
+.lateralization-bar-large {
+  margin-top: 20px;
+}
+
+.lat-bar-track {
+  position: relative;
+  height: 20px;
+  background: linear-gradient(to right, #3f51b5 0%, #7986cb 25%, #9c27b0 50%, #f48fb1 75%, #e91e63 100%);
+  border-radius: 10px;
+  overflow: visible;
+}
+
+.lat-bar-center-line {
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  width: 3px;
+  height: 26px;
+  background: white;
+  transform: translateX(-50%);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.lat-bar-track .lat-bar-marker {
+  position: absolute;
+  top: -5px;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border: 4px solid #333;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.lat-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.lat-label-left {
+  color: #3f51b5;
+}
+
+.lat-label-center {
+  color: #9c27b0;
+}
+
+.lat-label-right {
+  color: #e91e63;
+}
