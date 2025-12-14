@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: mind-eden
-        image: omaticaya/qianxue-test-mindpotential:1.0.9
+        image: omaticaya/mind-eden:1.0.10
         imagePullPolicy: Always
         ports:
         - containerPort: 80

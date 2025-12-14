@@ -17,7 +17,7 @@ resources:
 - hpa.yaml
 
 images:
-- name: omaticaya/qianxue-test-mindpotential
+- name: omaticaya/mind-eden
   newTag: 1.0.10
 
 commonLabels:
