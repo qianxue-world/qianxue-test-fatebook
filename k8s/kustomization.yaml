@@ -18,7 +18,7 @@ resources:
 
 images:
 - name: omaticaya/qianxue-test-fatebook
-  newTag: 1.0.14
+  newTag: 1.0.15
 
 commonLabels:
   app: qianxue-test-fatebook
