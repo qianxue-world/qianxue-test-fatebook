@@ -510,6 +510,45 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* ========== 激活码页面 ========== */
+.activation-page {
+  text-align: center;
+  z-index: 1;
+}
+
+.activation-error {
+  margin-top: 30px;
+}
+
+.error-message {
+  color: #ff9ecd;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  padding: 16px 24px;
+  background: rgba(255, 100, 150, 0.1);
+  border: 1px solid rgba(255, 100, 150, 0.3);
+  border-radius: 12px;
+}
+
+.activation-info {
+  color: rgba(232, 213, 240, 0.8);
+  line-height: 2;
+}
+
+.xiaohongshu {
+  margin-top: 16px;
+  font-size: 1.1rem;
+}
+
+.xiaohongshu .highlight {
+  color: #ff6b9d;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(255, 100, 150, 0.2), rgba(255, 150, 200, 0.2));
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 100, 150, 0.3);
+}
+
 /* 响应式 */
 @media (max-width: 640px) {
   .title {

@@ -1,6 +1,30 @@
 import { useState, useEffect, useCallback } from 'react'
 import './App.css'
 
+// 激活码校验API
+const ACTIVATION_API = 'https://api.qianxue.online/api/activation/validate'
+
+interface ValidateResponse {
+  isValid: boolean
+  message: string
+  expiresAt: string | null
+  validationCount: number
+  remainingValidations: number
+}
+
+async function validateActivationCode(code: string): Promise<ValidateResponse> {
+  try {
+    const response = await fetch(ACTIVATION_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code }),
+    })
+    return response.json()
+  } catch {
+    return { isValid: false, message: '网络错误，请稍后重试', expiresAt: null, validationCount: 0, remainingValidations: 0 }
+  }
+}
+
 // 答案类型
 interface Answer {
   num: number
@@ -66,6 +90,18 @@ function loadOrCreateBook(): FateBook {
   return book
 }
 
+// 从URL获取激活码
+function getActivationCodeFromUrl(): string | null {
+  const path = window.location.pathname
+  // 匹配 /CODE_XXXXX 格式
+  const match = path.match(/^\/([A-Za-z0-9_-]+)$/)
+  if (match && match[1]) {
+    return match[1]
+  }
+  return null
+}
+
+type AppState = 'loading' | 'invalid' | 'valid'
 type Step = 'question' | 'priming' | 'number' | 'answer'
 
 // 星空闪烁的答案项
@@ -79,6 +115,8 @@ interface StarItem {
 }
 
 function App() {
+  const [appState, setAppState] = useState<AppState>('loading')
+  const [activationError, setActivationError] = useState('')
   const [book, setBook] = useState<FateBook>(loadOrCreateBook)
   const [step, setStep] = useState<Step>('question')
   const [question, setQuestion] = useState('')
@@ -87,6 +125,25 @@ function App() {
   const [countdown, setCountdown] = useState(30)
   const [showSettings, setShowSettings] = useState(false)
   const [starItems, setStarItems] = useState<StarItem[]>([])
+
+  // 验证激活码
+  useEffect(() => {
+    const code = getActivationCodeFromUrl()
+    if (!code) {
+      setAppState('invalid')
+      setActivationError('请使用有效的激活码链接访问')
+      return
+    }
+
+    validateActivationCode(code).then((result) => {
+      if (result.isValid) {
+        setAppState('valid')
+      } else {
+        setAppState('invalid')
+        setActivationError(result.message || '激活码无效')
+      }
+    })
+  }, [])
 
   // 生成星空闪烁位置
   useEffect(() => {
@@ -200,6 +257,39 @@ function App() {
     }
     reader.readAsText(file)
     e.target.value = ''
+  }
+
+  // 加载中状态
+  if (appState === 'loading') {
+    return (
+      <div className="app">
+        <div className="activation-page">
+          <div className="focus-point">✧</div>
+          <h2>正在验证激活码...</h2>
+        </div>
+      </div>
+    )
+  }
+
+  // 激活码无效状态
+  if (appState === 'invalid') {
+    return (
+      <div className="app">
+        <div className="activation-page">
+          <div className="crystal-ball-small">✧</div>
+          <h1 className="title">命运水晶</h1>
+          <div className="activation-error">
+            <p className="error-message">{activationError}</p>
+            <div className="activation-info">
+              <p>需要购买激活码才能使用</p>
+              <p className="xiaohongshu">
+                详情请关注小红书 <span className="highlight">@潜学天下</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
